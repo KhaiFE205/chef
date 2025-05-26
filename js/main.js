@@ -61,3 +61,30 @@ document.querySelectorAll('.has-submenu > a').forEach(link => {
     }
   });
 });
+
+
+
+const moreBtn = document.querySelector('.tintuc-more-btn');
+const closeBtn = document.querySelector('.tintuc-close-btn');
+const allItems = document.querySelectorAll('.tintuc-item');
+
+moreBtn.addEventListener('click', function() {
+  const hiddenItems = document.querySelectorAll('.tintuc-item.hidden');
+  for (let i = 0; i < 3 && i < hiddenItems.length; i++) {
+    hiddenItems[i].classList.remove('hidden');
+  }
+  // Nếu không còn tin nào ẩn thì ẩn nút "Xem thêm", hiện nút "Đóng"
+  if (document.querySelectorAll('.tintuc-item.hidden').length === 0) {
+    moreBtn.style.display = 'none';
+    closeBtn.style.display = 'inline-block';
+  }
+});
+
+closeBtn.addEventListener('click', function() {
+  // Ẩn lại các tin từ số 4 trở đi
+  allItems.forEach((item, idx) => {
+    if (idx >= 3) item.classList.add('hidden');
+  });
+  closeBtn.style.display = 'none';
+  moreBtn.style.display = 'inline-block';
+});
