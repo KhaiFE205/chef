@@ -245,6 +245,10 @@
     border-radius: 12px;
     margin: 0 auto;
   }
+  .prev,
+.next{
+  display: none !important; /* Ẩn nút next/prev trên mobile */
+}
 }
 
 /* bán chạy */
@@ -401,3 +405,5 @@
     height: 113px;
   }
 }
+
+
